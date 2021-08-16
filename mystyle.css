@@ -1,0 +1,36 @@
+
+#todo{
+	text-align: center;
+	color: white;
+}
+input{
+	width: 100%;
+	height: 100%;
+	border: none;
+	outline: none;
+	border-bottom: 2px solid #FFA500	;
+	padding: 10px 20px;
+}
+
+
+#plus{
+	background-color:#FFA500;
+	color: white;
+	text-align: center;
+	border-radius: 10%;
+	cursor: pointer;
+	padding: 10px 0px;
+
+}
+i{
+	cursor: pointer;
+    transition: 0.1s all;
+
+}
+i:active{
+	color: pink;
+	 transform: scale(1);
+}
+#lol{
+	background-color: #00FFFF;
+}

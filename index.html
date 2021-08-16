@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="mystyle.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cabin:wght@500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+</head>
+<body onload="funn()">
+    <div id="lol" class="container-fluid  p-2"><h1 id="todo">To Do List</h1>
+    </div>
+    <br>
+    <br>
+    <div class="container">
+    <div class="row">
+        <div class="col-sm-11 col-9">
+            <input type="text" id="input">
+        </div>
+        <div class="col-sm-1 col-2 p-sm-3" id="plus">
+            <i class="fas fa-2x fa-plus"></i>
+        </div>
+    </div>
+    </div>
+    <br>
+    <br>
+    <div class="container">
+    <div class="row " id="text">
+    </div>
+</div>
+
+<script> 
+    plus.addEventListener("click",function(){
+        let a=document.getElementById('input').value;
+      if(a.length==0){
+        alert("Please Enter Text")
+      }
+      else{
+let aa=JSON.parse(localStorage.tasks);
+aa.push(a);
+localStorage.tasks=JSON.stringify(aa);
+}
+document.getElementById('input').value="";
+funn();
+})
+
+function funn(){
+let ab=JSON.parse(localStorage.tasks);
+let tex=document.getElementById("text");
+let html="";
+for(let i=ab.length-1;i>=0;i--)
+{
+  html+='<div class="col-sm-10 col-9 ml-3 bg-primary text-white rounded mb-2 "><h3>'+ab[i]+'</h3></div><div class="col-sm-1 col-1 mb-2 "><i class="fas fa-2x fa-trash" onclick="del('+i+')"></i></div>'
+}
+tex.innerHTML=html;
+}
+    function del(df){
+      let aa=JSON.parse(localStorage.tasks);
+      aa.splice(df,1);
+      localStorage.tasks=JSON.stringify(aa);
+      funn();
+    }
+ </script>
+</body>
+</html>
